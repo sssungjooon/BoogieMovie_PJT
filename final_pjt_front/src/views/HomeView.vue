@@ -2,18 +2,29 @@
   <div class="home">
     <p>123</p>
     <FirstComponent/>
+    <div>
+      <MovieList :movies="selectedMovies" />
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import FirstComponent from '@/components/FirstComponent.vue'
+import MovieList from '@/components/MovieList.vue'
 export default {
   name: 'HomeView',
   components: {
-    FirstComponent
-    
-  }
+    FirstComponent,
+    MovieList,
+  },
+  data: function() {
+    return {
+      selectedMovies: [],
+
+    }
+  },
+  // selected 메서드(알고리즘) 작성(MainRecommendVue참고)
 }
 </script>
 

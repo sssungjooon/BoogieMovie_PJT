@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>My Page</h1>
+  <div id="my-page">
+    <p>mypage</p>
   </div>
 </template>
 
