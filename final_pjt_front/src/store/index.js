@@ -6,6 +6,7 @@ import router from '@/router'
 
 Vue.use(Vuex)
 
+// articles를 movielist로 수정..
 
 const API_URL = 'http://127.0.0.1:8000'
 

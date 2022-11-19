@@ -6,7 +6,7 @@
           <router-link style="text-decoration:none; color: white;" :to="{name:'home'}">Home</router-link> |
           <router-link style="text-decoration:none; color: white;" :to="{name:'signup'}">SignUp</router-link> |
           <router-link style="text-decoration:none; color: white;" :to="{name:'login'}">LogIn</router-link> |
-          <router-link style="text-decoration:none; color: white;" :to="{name:'MyPage'}">MyPage</router-link>
+          <router-link style="text-decoration:none; color: white;" :to="{name:'mypage'}">MyPage</router-link>
         </span>
       </nav>
     </div>

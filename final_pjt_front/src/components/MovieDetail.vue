@@ -2,7 +2,7 @@
   <div>
     <section id="movie-detail-section">
       <div id="detail-info-flex">
-        <MovieDetailInfoSection :movieId="movieId" :movieName="movieName"/>
+        <MovieDetailInfo :movieId="movieId" :movieName="movieName"/>
       </div>
       <div id="review-flex">
         <MovieDetailReview :movieId="movieId" />
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import MovieDetailInfoSection from "@/components/MovieDetailInfoSection.vue"
+import MovieDetailInfo from "@/components/MovieDetailInfo.vue"
 import MovieDetailReview from "@/components/MovieDetailReview.vue"
 
 export default {
@@ -21,7 +21,7 @@ export default {
     movieName: String,
   },
   components: {
-    MovieDetailInfoSection,
+    MovieDetailInfo,
     MovieDetailReview,
   },
 }

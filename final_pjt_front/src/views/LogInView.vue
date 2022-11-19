@@ -3,12 +3,12 @@
     <h1>LogIn Page</h1>
     <form @submit.prevent="logIn">
       <label for="username">username : </label>
-      <input type="text" id="username" v-model="username"><br>
+      <input class="login-input" type="text" id="username" v-model="username"><br>
       <br>
       <label for="password"> password : </label>
-      <input type="password" id="password" v-model="password"><br>
+      <input class="login-input" type="password" id="password" v-model="password"><br>
       <br>
-      <input type="submit" value="logIn">
+      <input class="login-button" type="submit" value="logIn">
     </form>
   </div>
 </template>
@@ -53,7 +53,30 @@ export default {
   color: white;
 }
 
+.login-button {
+  width: 5rem;
+  background-color: white;
+  border: 2px solid black;
+  line-height: 1;
+  font: inherit;
+  font-style: bold;
+  color: black;
+  font-size: 0.9rem;
+  margin: 0.2em;
+  padding: 0.2em;
+  font-weight: bold;
+}
 
+.login-input{
+  background-color: black;
+  color:white;
+  border: 1px solid white;
+}
+.login-button:hover {
+  background-color: rgb(75, 4, 20);
+  transition: all .5s;
+  transform: translateY(-0.25em);
 
+}
 
 </style>

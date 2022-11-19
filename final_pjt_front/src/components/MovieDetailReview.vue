@@ -37,8 +37,8 @@
 
 <script>
 import ReviewList from '@/components/ReviewList.vue'
-import axios from 'axios'
-import drf from '@/api/drf'
+// import axios from 'axios'
+// import drf from '@/api/drf'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -60,144 +60,144 @@ export default {
       },
     }
   },
-  methods: {
-    onVoice: function () {
-      window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
-      const recognition = new window.SpeechRecognition();
-      recognition.interimResults = false;
-      recognition.lang = 'ko-KR'; 
+  // methods: {
+  //   onVoice: function () {
+  //     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+  //     const recognition = new window.SpeechRecognition();
+  //     recognition.interimResults = false;
+  //     recognition.lang = 'ko-KR'; 
 
-      let p = ''
+  //     let p = ''
     
-      recognition.addEventListener('result', e => {
-      const transcript = Array.from(e.results)
-        .map(result => result[0])
-        .map(result => result.transcript)
-        .join('');
+  //     recognition.addEventListener('result', e => {
+  //     const transcript = Array.from(e.results)
+  //       .map(result => result[0])
+  //       .map(result => result.transcript)
+  //       .join('');
 
-        p = transcript;
-        this.myreview.content += p
+  //       p = transcript;
+  //       this.myreview.content += p
 
-        if (e.results[0].isFinal) {
-          p = ' '
-          this.myreview.content += p
-        }
-      });    
+  //       if (e.results[0].isFinal) {
+  //         p = ' '
+  //         this.myreview.content += p
+  //       }
+  //     });    
 
-      recognition.start();
-    },
-    deleteReview () {
-      axios({
-        url: drf.movies.review_ud(this.movieId, this.myreview.id),
-        method: 'delete',
-        headers: this.authHeader
-      })
-      this.reviewed = false
-      this.myreview = {
-        'content': '',
-        'score': 0,         
-      }
-      this.updateStar()
-    },
-    editReview () {
-      this.reviewed = false
-    },
-    updateStar () {
-      const stars = document.querySelectorAll(`#movie-${ this.movieId }-review`)
-      for (let star of stars) {        
-        if (star.dataset.id <= this.myreview.score) {
-          if (!star.classList.contains('star-active')) {
-            star.classList.add('star-active')
-          }
-        } else {
-           if (star.classList.contains('star-active')) {
-            star.classList.remove('star-active')
-          }
-        }
-      }
-    },
-    submitReview () {
-      if ( this.myreview.score === 0 ) {
-        alert('별점을 입력해주세요!')
-        return
-      }
-      if (this.myreview.content === '') {
-        alert('내용을 입력해주세요!')
-        return
-      }
-      axios({
-        url: drf.movies.reviews(this.movieId),
-        method: 'post',
-        headers: this.authHeader,
-        data: {
-          content: this.myreview.content,
-          score: this.myreview.score,
-        }
-      })
-      .then(res => {
-        this.myreview = res.data
-        this.reviewed = true
-      })
-    },
-    selectStar: function (event) {
-      if (!this.reviewed) {
-        const selectScore = event.target.dataset.id
-        this.myreview.score = selectScore
-        const stars = document.querySelectorAll(`#movie-${ this.movieId }-review`)
-        for (let star of stars) {
-          if (star.dataset.id <= selectScore) {
-            if (!star.classList.contains('star-active')) {
-              star.classList.add('star-active')
-            }
-          } else {
-             if (star.classList.contains('star-active')) {
-              star.classList.remove('star-active')
-            }
-          }
-        }
-      }
-    },
-  },
+  //     recognition.start();
+  //   },
+  //   deleteReview () {
+  //     axios({
+  //       url: drf.movies.review_ud(this.movieId, this.myreview.id),
+  //       method: 'delete',
+  //       headers: this.authHeader
+  //     })
+  //     this.reviewed = false
+  //     this.myreview = {
+  //       'content': '',
+  //       'score': 0,         
+  //     }
+  //     this.updateStar()
+  //   },
+  //   editReview () {
+  //     this.reviewed = false
+  //   },
+  //   updateStar () {
+  //     const stars = document.querySelectorAll(`#movie-${ this.movieId }-review`)
+  //     for (let star of stars) {        
+  //       if (star.dataset.id <= this.myreview.score) {
+  //         if (!star.classList.contains('star-active')) {
+  //           star.classList.add('star-active')
+  //         }
+  //       } else {
+  //          if (star.classList.contains('star-active')) {
+  //           star.classList.remove('star-active')
+  //         }
+  //       }
+  //     }
+  //   },
+  //   submitReview () {
+  //     if ( this.myreview.score === 0 ) {
+  //       alert('별점을 입력해주세요!')
+  //       return
+  //     }
+  //     if (this.myreview.content === '') {
+  //       alert('내용을 입력해주세요!')
+  //       return
+  //     }
+  //     axios({
+  //       url: drf.movies.reviews(this.movieId),
+  //       method: 'post',
+  //       headers: this.authHeader,
+  //       data: {
+  //         content: this.myreview.content,
+  //         score: this.myreview.score,
+  //       }
+  //     })
+  //     .then(res => {
+  //       this.myreview = res.data
+  //       this.reviewed = true
+  //     })
+  //   },
+  //   selectStar: function (event) {
+  //     if (!this.reviewed) {
+  //       const selectScore = event.target.dataset.id
+  //       this.myreview.score = selectScore
+  //       const stars = document.querySelectorAll(`#movie-${ this.movieId }-review`)
+  //       for (let star of stars) {
+  //         if (star.dataset.id <= selectScore) {
+  //           if (!star.classList.contains('star-active')) {
+  //             star.classList.add('star-active')
+  //           }
+  //         } else {
+  //            if (star.classList.contains('star-active')) {
+  //             star.classList.remove('star-active')
+  //           }
+  //         }
+  //       }
+  //     }
+  //   },
+  // },
   computed: {
     ...mapGetters(['authHeader']),
     reviewIdPath: function () {
       return `movie-${ this.movieId }-review`
     }
   },
-  created () {
-    axios({
-      url: drf.movies.movie(this.movieId),
-      method: 'get',
-    })
-    .then(res => {
-      this.reviews = res.data.reviews
-      axios({
-        url: drf.accounts.currentUserInfo(),
-        method: 'get',
-        headers: this.authHeader
-      })
-      .then(res => {
-        const userId = res.data.pk
-        this.reviews.map(review => {
-          if (review.user.id === userId) {
-            this.reviewed = true
-            this.myreview = review
-          }
-        })
-        if (this.reviewed) {
+  // created () {
+  //   axios({
+  //     url: drf.movies.movie(this.movieId),
+  //     method: 'get',
+  //   })
+  //   .then(res => {
+  //     this.reviews = res.data.reviews
+  //     axios({
+  //       url: drf.accounts.currentUserInfo(),
+  //       method: 'get',
+  //       headers: this.authHeader
+  //     })
+  //     .then(res => {
+  //       const userId = res.data.pk
+  //       this.reviews.map(review => {
+  //         if (review.user.id === userId) {
+  //           this.reviewed = true
+  //           this.myreview = review
+  //         }
+  //       })
+  //       if (this.reviewed) {
           
-          const idx = this.reviews.indexOf(this.myreview)
-          this.reviews.splice(idx, 1)
-        }
-        if (this.reviews.length > 0) {
-          this.othersreviewed = true
-        }
-      })
-    })
-  },
-  updated () {
-    this.updateStar()
-  }
+  //         const idx = this.reviews.indexOf(this.myreview)
+  //         this.reviews.splice(idx, 1)
+  //       }
+  //       if (this.reviews.length > 0) {
+  //         this.othersreviewed = true
+  //       }
+  //     })
+  //   })
+  // },
+  // updated () {
+  //   this.updateStar()
+  // }
 }
 </script>
 

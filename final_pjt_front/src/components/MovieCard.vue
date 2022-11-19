@@ -35,7 +35,7 @@
 <script>
 import ModalView from "@/components/ModalView.vue"
 import MovieDetail from "@/components/MovieDetail.vue"
-import notFoundImg from '@/assets/not-found-image.jpeg'
+// import notFoundImg from '@/assets/not-found-image.jpeg'
 
 export default {
   name: 'MovieCard',
@@ -56,19 +56,19 @@ export default {
       document.body.classList.add("modal-open");
     },
   },
-  computed: {
-    posterPath: function () {
-      const poster_path = this.movie.poster_path
-      if (poster_path) {
-        return `https://image.tmdb.org/t/p/original/${poster_path}`
-      } else {
-        return notFoundImg
-      }
-    },
-    idPath: function () {
-      return `movie-${ this.movie.id || this.movie.tmdb_movie_id }`
-    }
-  },
+  // computed: {
+  //   posterPath: function () {
+  //     const poster_path = this.movie.poster_path
+  //     if (poster_path) {
+  //       return `https://image.tmdb.org/t/p/original/${poster_path}`
+      // } else {
+      //   return notFoundImg
+    //   }
+    // },
+    // idPath: function () {
+    //   return `movie-${ this.movie.id || this.movie.tmdb_movie_id }`
+    // }
+  // },
 //   mounted() {
 //     const voteAverage = Math.round(this.movie.vote_average / 2)
 //     const stars = document.querySelectorAll(`#movie-${ this.movie.id || this.movie.tmdb_movie_id }`)

@@ -2,6 +2,7 @@
   <div class="home">
     <p>123</p>
     <FirstComponent/>
+    <br>
     <div>
       <MovieList :movies="selectedMovies" />
     </div>

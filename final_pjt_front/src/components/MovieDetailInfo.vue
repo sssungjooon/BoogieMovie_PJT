@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import axios from 'axios'
-import drf from '@/api/drf'
+// import axios from 'axios'
+// import drf from '@/api/drf'
 import { mapGetters } from 'vuex'
-import secret_data from "@/assets/secrets.json"
+// import secret_data from "@/assets/secrets.json"
 
 export default {
   name: "MovieDetailInfoSection",
@@ -41,76 +41,76 @@ export default {
       normal: false,
     }
   },
-  methods: {
-    movielike () {
-      axios({
-        url: drf.movies.likeMovie(this.movieId),
-        method: 'post',
-        headers: this.authHeader
-      })
-    },
-  },
+  // methods: {
+  //   movielike () {
+  //     axios({
+  //       url: drf.movies.likeMovie(this.movieId),
+  //       method: 'post',
+  //       headers: this.authHeader
+  //     })
+  //   },
+  // },
   computed: {
     ...mapGetters(['authHeader'])
   },
-  created () {
-    const tmdbAPI = secret_data.TMDB_API_KEY
-    const youtubeAPI = secret_data.YOUTUBE_API_KEY
-    axios({
-      url: `https://api.themoviedb.org/3/movie/${this.movieId}/videos`,
-      method: 'get',
-      params: {
-        'api_key': tmdbAPI,
-        'region': 'KR',
-        'language': 'ko',
-      }
-    })
-    .then(res => {
-      if (res.data.results[0]) {
-        this.trailerURL = 'https://www.youtube.com/embed/' + res.data.results[0]['key']
-      }
-      else {
-        const API_KEY = youtubeAPI
-        const API_URL = 'https://www.googleapis.com/youtube/v3/search'
-        const params = {
-          key: API_KEY,
-          part: 'snippet',
-          q: this.movieName,
-          type: 'video',
-        }
-        axios.get(API_URL, {params,})
-        .then(res => {
-          const selected = res.data.items[0]
-          this.trailerURL = `https://www.youtube.com/embed/${selected.id.videoId}`
-        })
-      }
-    })
+  // created () {
+  //   const tmdbAPI = secret_data.TMDB_API_KEY
+  //   const youtubeAPI = secret_data.YOUTUBE_API_KEY
+  //   axios({
+  //     url: `https://api.themoviedb.org/3/movie/${this.movieId}/videos`,
+  //     method: 'get',
+  //     params: {
+  //       'api_key': tmdbAPI,
+  //       'region': 'KR',
+  //       'language': 'ko',
+  //     }
+  //   })
+  //   .then(res => {
+  //     if (res.data.results[0]) {
+  //       this.trailerURL = 'https://www.youtube.com/embed/' + res.data.results[0]['key']
+  //     }
+  //     else {
+  //       const API_KEY = youtubeAPI
+  //       const API_URL = 'https://www.googleapis.com/youtube/v3/search'
+  //       const params = {
+  //         key: API_KEY,
+  //         part: 'snippet',
+  //         q: this.movieName,
+  //         type: 'video',
+  //       }
+  //       axios.get(API_URL, {params,})
+  //       .then(res => {
+  //         const selected = res.data.items[0]
+  //         this.trailerURL = `https://www.youtube.com/embed/${selected.id.videoId}`
+  //       })
+  //     }
+  //   })
 
-    axios({
-      url: drf.movies.movie(this.movieId),
-      method: 'get',
-    })
-    .then(res => {
-      this.movie = res.data
-      axios({
-        url: drf.accounts.currentUserInfo(),
-        method: 'get',
-        headers: this.authHeader
-      })
-      .then(res => {
-        const userId = res.data.pk
-        const like_users = this.movie.like_users
-        const dislike_users = this.movie.dislike_users
-        if (like_users.includes(userId)) {
-          this.like = true
-        } else if (dislike_users.includes(userId)) {
-          this.dislike = true
-        } else {
-          this.normal = true
-        }
-      })
-    })
-  }
+  //   axios({
+  //     url: drf.movies.movie(this.movieId),
+  //     method: 'get',
+  //   })
+  //   .then(res => {
+  //     this.movie = res.data
+  //     axios({
+  //       url: drf.accounts.currentUserInfo(),
+  //       method: 'get',
+  //       headers: this.authHeader
+  //     })
+  //     .then(res => {
+  //       const userId = res.data.pk
+  //       const like_users = this.movie.like_users
+  //       const dislike_users = this.movie.dislike_users
+  //       if (like_users.includes(userId)) {
+  //         this.like = true
+  //       } else if (dislike_users.includes(userId)) {
+  //         this.dislike = true
+  //       } else {
+  //         this.normal = true
+  //       }
+  //     })
+  //   })
+  // }
 }
 </script>
 
