@@ -1,0 +1,14 @@
+asgiref==3.5.2
+certifi==2022.9.24
+charset-normalizer==2.1.1
+Django==3.2.13
+django-cors-headers==3.13.0
+django-extensions==3.2.1
+djangorestframework==3.14.0
+djangorestframework-jwt==1.11.0
+idna==3.4
+PyJWT==1.7.1
+pytz==2022.4
+requests==2.28.1
+sqlparse==0.4.3
+urllib3==1.26.12

@@ -1,0 +1,135 @@
+[
+  {
+    "genre_id": 28,
+    "model": "movies.genre",
+    "fields": {
+      "name": "액션"
+    }
+  },
+  {
+    "genre_id": 12,
+    "model": "movies.genre",
+    "fields": {
+      "name": "모험"
+    }
+  },
+  {
+    "genre_id": 16,
+    "model": "movies.genre",
+    "fields": {
+      "name": "애니메이션"
+    }
+  },
+  {
+    "genre_id": 35,
+    "model": "movies.genre",
+    "fields": {
+      "name": "코미디"
+    }
+  },
+  {
+    "genre_id": 80,
+    "model": "movies.genre",
+    "fields": {
+      "name": "범죄"
+    }
+  },
+  {
+    "genre_id": 99,
+    "model": "movies.genre",
+    "fields": {
+      "name": "다큐멘터리"
+    }
+  },
+  {
+    "genre_id": 18,
+    "model": "movies.genre",
+    "fields": {
+      "name": "드라마"
+    }
+  },
+  {
+    "genre_id": 10751,
+    "model": "movies.genre",
+    "fields": {
+      "name": "가족"
+    }
+  },
+  {
+    "genre_id": 14,
+    "model": "movies.genre",
+    "fields": {
+      "name": "판타지"
+    }
+  },
+  {
+    "genre_id": 36,
+    "model": "movies.genre",
+    "fields": {
+      "name": "역사"
+    }
+  },
+  {
+    "genre_id": 27,
+    "model": "movies.genre",
+    "fields": {
+      "name": "공포"
+    }
+  },
+  {
+    "genre_id": 10402,
+    "model": "movies.genre",
+    "fields": {
+      "name": "음악"
+    }
+  },
+  {
+    "genre_id": 9648,
+    "model": "movies.genre",
+    "fields": {
+      "name": "미스터리"
+    }
+  },
+  {
+    "genre_id": 10749,
+    "model": "movies.genre",
+    "fields": {
+      "name": "로맨스"
+    }
+  },
+  {
+    "genre_id": 878,
+    "model": "movies.genre",
+    "fields": {
+      "name": "SF"
+    }
+  },
+  {
+    "genre_id": 10770,
+    "model": "movies.genre",
+    "fields": {
+      "name": "TV 영화"
+    }
+  },
+  {
+    "genre_id": 53,
+    "model": "movies.genre",
+    "fields": {
+      "name": "스릴러"
+    }
+  },
+  {
+    "genre_id": 10752,
+    "model": "movies.genre",
+    "fields": {
+      "name": "전쟁"
+    }
+  },
+  {
+    "genre_id": 37,
+    "model": "movies.genre",
+    "fields": {
+      "name": "서부"
+    }
+  }
+]

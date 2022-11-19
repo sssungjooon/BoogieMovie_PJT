@@ -1,0 +1,231 @@
+[
+  {
+    "pk": 436270,
+    "model": "movies.movie",
+    "fields": {
+      "popularity": 8684.035,
+      "overview": "기원전 가장 번성하고 위대한 고대 국가였지만 현재는 국제 군사 조직 인터갱의 독재 국가로 전락한 칸다크. 인터갱의 눈을 피해 고대 유물을 찾던 '아드리아나'는 우연히 5000년 동안 잠들어 있던 '블랙 아담'을 깨우게 된다.  엄청난 괴력과 스피드, 방탄 능력과 자유자재의 고공비행, 번개를 쏘는 능력까지. 온몸이 무기인 '블랙 아담'은 자신의 앞을 막아서는 인터갱들을 모조리 쓸어버리고 칸다크 국민들은 이에 열광한다. 한편, 그의 폭주를 막기 위해 호크맨, 닥터 페이트, 아톰 스매셔, 사이클론으로 구성된 히어로 군단 '저스티스 소사이어티'가 칸다크에 나타나는데...",
+      "title": "블랙 아담",
+      "release_date": "2022-10-19",
+      "vote_average": 6.9,
+      "genre_ids": [
+        28,
+        14,
+        878
+      ],
+      "poster_path": "/mEdMHGy1FfCUc7PskFO0tibm8jp.jpg",
+      "video_path": "jD5Yc2qMzBw",
+      "keywords": [
+        "lightning",
+        "anti hero",
+        "superhero",
+        "based on comic",
+        "demon",
+        "superhero team",
+        "duringcreditsstinger",
+        "dc extended universe"
+      ]
+    }
+  },
+  {
+    "pk": 882598,
+    "model": "movies.movie",
+    "fields": {
+      "popularity": 3871.704,
+      "overview": "기괴한 미소를 지으며 자신의 눈 앞에서 목숨을 끊는 환자를 목격한 정신과 의사 ‘로즈’. 그날 이후로 ‘로즈’의 일상에 설명할 수 없는 끔찍한 일들이 잇따라 발생한다. 일상을 덮친 공포에 발버둥치던 ‘로즈’는 이전에도 자신과 같은 일을 겪은 사람들이 있었고 그들 모두 끔찍한 죽음을 피할 수 없었다는 사실을 알게 된다. 시시각각 다가오는 죽음에서 벗어나기 위해 사투를 벌이던 로즈는 잊고 싶던 과거와 마주하게 되는데…",
+      "title": "스마일",
+      "release_date": "2022-09-23",
+      "vote_average": 6.8,
+      "genre_ids": [
+        27,
+        9648,
+        53
+      ],
+      "poster_path": "/8ncuVFt4e0M2NTTsoPtbxfWN5dO.jpg",
+      "video_path": "9D-XKOfoJVY",
+      "keywords": [
+        "suicide",
+        "detective",
+        "paranoia",
+        "therapist",
+        "trauma",
+        "curse",
+        "hospital",
+        "doctor",
+        "mental illness",
+        "evil",
+        "psychotic",
+        "demonic",
+        "based on short film",
+        "ptsd"
+      ]
+    }
+  },
+  {
+    "pk": 505642,
+    "model": "movies.movie",
+    "fields": {
+      "popularity": 3441.331,
+      "overview": "국왕이자 블랙 팬서인 티찰라의 죽음 이후 수많은 강대국으로부터 위협을 받게 된 와칸다. 라몬다, 슈리 그리고 나키아, 오코예, 음바쿠는 각자 사명감을 갖고 와칸다를 지키기 위해 외로운 싸움을 이어간다. 한편, 비브라늄의 패권을 둘러싼 미스터리한 음모와 함께 깊은 해저에서 모습을 드러낸 최강의 적 네이머와 탈로칸의 전사들은 와칸다를 향해 무차별 공격을 퍼붓기 시작하는데…",
+      "title": "블랙 팬서: 와칸다 포에버",
+      "release_date": "2022-11-09",
+      "vote_average": 7.5,
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "poster_path": "/3PCRWLeqp5y20k6XVzcamZR3BWF.jpg",
+      "video_path": "vcLtKBRt344",
+      "keywords": [
+        "hero",
+        "sequel",
+        "superhero",
+        "based on comic",
+        "duringcreditsstinger",
+        "death of king",
+        "marvel cinematic universe (mcu)",
+        "hidden civilization"
+      ]
+    }
+  },
+  {
+    "pk": 829280,
+    "model": "movies.movie",
+    "fields": {
+      "popularity": 1807.972,
+      "overview": "탐정이 된 후 첫 번째 사건을 수임한 에놀라. 하지만 실종된 소녀의 미스터리를 풀기 위해서는 친구들의 도움이 필요하다. 어쩌면 오빠 셜록의 도움까지도.",
+      "title": "에놀라 홈즈 2",
+      "release_date": "2022-11-04",
+      "vote_average": 7.7,
+      "genre_ids": [
+        9648,
+        12,
+        80
+      ],
+      "poster_path": "/S6fDnntDjduIWuLW2GcqFasobD.jpg",
+      "video_path": "MYPotDkwXfE",
+      "keywords": [
+        "detective",
+        "victorian england",
+        "sequel",
+        "female detective",
+        "sherlock holmes"
+      ]
+    }
+  },
+  {
+    "pk": 979924,
+    "model": "movies.movie",
+    "fields": {
+      "popularity": 1439.993,
+      "overview": "진행자가 전화를 받는데, 이 전화에서 정체를 알 수 없는 사람이  쇼맨의 온 가족을 죽이겠다고 협박합니다. 사랑하는 사람들을 구하기 위해  라디오 진행자는 생존 게임을 해야 할 것이고  이길 수 있는 유일한 방법은 범인의 신원을 알아내는 것입니다.",
+      "title": "온 더 라인",
+      "release_date": "2022-10-31",
+      "vote_average": 6.5,
+      "genre_ids": [
+        53
+      ],
+      "poster_path": "/jVmWI8PqoVTHCnrLYAcyrclzeY0.jpg",
+      "video_path": "WecHvYe25wI",
+      "keywords": []
+    }
+  },
+  {
+    "pk": 985939,
+    "model": "movies.movie",
+    "fields": {
+      "popularity": 1176.073,
+      "overview": "내려갈 길이 끊겨버린 600미터 TV 타워 위에서  두 명의 친구가 살아남기 위해 펼치는 사상 최초의 고공 서바이벌 여기에서",
+      "title": "폴: 600미터",
+      "release_date": "2022-08-11",
+      "vote_average": 7.3,
+      "genre_ids": [
+        53
+      ],
+      "poster_path": "/8huJowZK1t7MNLEKo3dgLAxmiLW.jpg",
+      "video_path": "iRZ3Nh_d4eY",
+      "keywords": [
+        "sport climbing"
+      ]
+    }
+  },
+  {
+    "pk": 49046,
+    "model": "movies.movie",
+    "fields": {
+      "popularity": 1138.267,
+      "overview": "제1차 세계대전 당시 서부전선에서 싸운 독일군 청년의 강렬한 이야기.  젊은 사병과 전우들은 참호 속에서 사투를 벌이며,  처음 전쟁에 대해 느꼈던 환상과 도취감이  어떻게 절망과 공포로 변해가는지를 생생하게 체험한다.",
+      "title": "서부 전선 이상 없다",
+      "release_date": "2022-10-07",
+      "vote_average": 7.8,
+      "genre_ids": [
+        10752,
+        18,
+        28
+      ],
+      "poster_path": "/sNsmI4vQ1A6VG52dquTFx8oNTWk.jpg",
+      "video_path": "hHs38rmOuhs",
+      "keywords": [
+        "based on novel or book",
+        "world war i",
+        "tank",
+        "battle",
+        "period drama",
+        "german soldier",
+        "1910s",
+        "aircraft"
+      ]
+    }
+  },
+  {
+    "pk": 760161,
+    "model": "movies.movie",
+    "fields": {
+      "popularity": 957.873,
+      "overview": "엄청난 비밀을 숨긴 사이코패스가 에스토니아의 정신병동을 탈출, 부유한 가족의 실종된 딸 ‘에스더’로 사칭해 미국에 온다. 재회의 기쁨도 잠시, 어딘지 낯선 딸의 정체를 눈치챈 엄마는 가족을 지키기 위해 에스더와 맞서는데...  누구도 상상 못한 충격적인 반전이 기다린다!",
+      "title": "오펀: 천사의 탄생",
+      "release_date": "2022-07-27",
+      "vote_average": 6.8,
+      "genre_ids": [
+        27,
+        53
+      ],
+      "poster_path": "/vKIhsEVEtLTwTkmLSDNi230Zr3Q.jpg",
+      "video_path": "kQiaMIBKBSU",
+      "keywords": [
+        "psychopath",
+        "family secrets",
+        "prequel",
+        "murder",
+        "impersonator",
+        "mental patient",
+        "psycho killer",
+        "escaped mental patient",
+        "missing daughter",
+        "estonia",
+        "female psychopath"
+      ]
+    }
+  },
+  {
+    "pk": 833097,
+    "model": "movies.movie",
+    "fields": {
+      "popularity": 952.958,
+      "overview": "스키 여행 중 사고로 기억을 잃은 철없는 상속녀. 아내와 사별 후 힘든 상황에 놓인 남자와 딸의 포근한 보살핌 속에 크리스마스를 보낸다.",
+      "title": "폴링 포 크리스마스",
+      "release_date": "2022-11-10",
+      "vote_average": 6.7,
+      "genre_ids": [
+        10749,
+        35
+      ],
+      "poster_path": "/6GkphwL9s6dZb3DoQS9OQ4LcPgY.jpg",
+      "video_path": "f_Ds412zMEs",
+      "keywords": [
+        "christmas spirit"
+      ]
+    }
+  }
+]
