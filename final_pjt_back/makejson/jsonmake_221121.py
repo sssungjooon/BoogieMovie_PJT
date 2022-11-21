@@ -134,5 +134,5 @@ def get_movie_Data() :
             
     return result
 
-with open('../movies/fixtures/movies_movie8.json', 'w', encoding="UTF-8") as f :
+with open('../movies/fixtures/movies_movie.json', 'w', encoding="UTF-8") as f :
     json.dump(get_movie_Data(), f, ensure_ascii=False, indent=2)
