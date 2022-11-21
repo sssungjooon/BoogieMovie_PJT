@@ -1,56 +1,74 @@
 from django.db import models
 from django.conf import settings
+# from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
-class Genre(models.Model):
-    genre_id = models.IntegerField(primary_key=True)
-    #pk = models.IntegerField()
-    name = models.CharField(max_length=50)
-
-    #def __str__(self) : # admin 페이지에서 편하게 보기 위함
-    #    return self.name
-
 class Actor(models.Model):
-    actor_id = models.IntegerField(primary_key=True)
-    #pk = models.IntegerField()
-    name= models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
     profile_path = models.CharField(max_length=300)
 
-    def __str__(self):
-        return f'{self.name}'
+class Genre(models.Model):
+    name = models.CharField(max_length=50)
 
 class Keyword(models.Model):
-    keyword_id = models.IntegerField(primary_key=True)
-    #pk = models.IntegerField()
     name = models.CharField(max_length=100)
 
+# class Movie(models.Model):
+#     title = models.CharField(max_length=200)
+#     poster_path = models.CharField(max_length=100)
+#     popularity = models.IntegerField()
+#     vote_average = models.FloatField()
+#     release_date = models.CharField(max_length=100)
+#     overview = models.TextField()
+#     genre_ids = models.ManyToManyField(Genre)
+#     actor_ids = models.ManyToManyField(Actor)
+#     director_id = models.ForeignKey(Director, on_delete=models.CASCADE, related_name="movies")
+#     user_watched = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='watched_movie')
+#     user_wished = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="wish_movie")
+
+
 class Movie(models.Model):
-    id = models.IntegerField(primary_key=True)
-    # pk = models.IntegerField()
-    genres = models.ManyToManyField(Genre)
-    # actor_ids = models.IntegerField()
-    actor_ids = models.ManyToManyField(Actor)
-    title = models.CharField(max_length=100)
-    overview = models.TextField()
-    release_date = models.DateField()
-    vote_count = models.IntegerField()
+    title = models.CharField(max_length=50)
     vote_average = models.FloatField()
+    vote_count = models.IntegerField()
+    overview = models.CharField(max_length=200)
+    genres = models.ManyToManyField(Genre, related_name="movies")
+    actors = models.ManyToManyField(Actor, related_name="movies")
+    keywords = models.ManyToManyField(Keyword, related_name="movies")
+    release_date = models.DateField()
+    # wish_user = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="wish_movie")
     poster_path = models.CharField(max_length=200)
     video_path = models.CharField(max_length=200)
-    # keywords = models.IntegerField()
-    keywords = models.ManyToManyField(Keyword)
-
-    #def __str__(self) :
-    #    return self.title
-    
-#class Actor(models.Model) :
 
 
-    #def __str__(self) : # admin 페이지에서 편하게 보기 위함
-    #    return self.name
+#class Review(models.Model):
+#    title = models.CharField(max_length=20)
+#    content = models.CharField(max_length=200)
+#    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="reviews")
+#    reviewed_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="reviews")
 
 
-# class Tournament(models.Model) :
-#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='tournaments')
-#     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-#     created_at = models.DateTimeField(auto_now_add=True)
+#class WatchedMovie(models.Model):
+#    rate = models.FloatField(
+#        default=0,
+#        validators=[
+#            MaxValueValidator(5),
+#            MinValueValidator(0.5)
+#        ]
+#    )
+#    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="watched_movie")
+#    watched_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="watched_movie")
+
+
+# class Review(models.Model):
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="review")
+#     movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="review")
+#     title = models.CharField(max_length=50)
+#     content = models.TextField()
+#     rate = models.FloatField(
+#         default=0,
+#         validators=[
+#             MaxValueValidator(5),
+#             MinValueValidator(0.5)
+#         ]
+#     )
