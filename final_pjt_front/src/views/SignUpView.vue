@@ -100,6 +100,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
+  /* opacity: 0.5; */
 }
 .genre-buttons .raise:hover,
 .genre-buttons .raise-focus {
@@ -157,5 +158,10 @@ export default {
   color:white;
   border: 1px solid white;
 
+}
+#genre-box {
+  width: 80%;
+  justify-content: center;
+  margin: auto;
 }
 </style>

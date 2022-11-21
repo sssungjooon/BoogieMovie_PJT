@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <p>123</p>
-    <FirstComponent/>
+    <MainPage/>
     <br>
     <div>
       <MovieList :movies="selectedMovies" />
@@ -11,12 +11,12 @@
 
 <script>
 // @ is an alias to /src
-import FirstComponent from '@/components/FirstComponent.vue'
+import MainPage from '@/components/MainPage.vue'
 import MovieList from '@/components/MovieList.vue'
 export default {
   name: 'HomeView',
   components: {
-    FirstComponent,
+    MainPage,
     MovieList,
   },
   data: function() {
