@@ -32,6 +32,11 @@ export default new Vuex.Store({
     SAVE_TOKEN(state, token) {
       state.token = token
       router.push({ name: 'ArticleView' })
+    },
+    LOGOUT(state) {
+      state.username = null
+      localStorage.removeItem('username')
+      location.reload();
     }
   },
   actions: {
@@ -80,6 +85,9 @@ export default new Vuex.Store({
           // console.log(res)
           context.commit('SAVE_TOKEN', res.data.key)
         })
+    },
+    logout({commit}) {
+      commit('LOGOUT')
     },
   },
   modules: {

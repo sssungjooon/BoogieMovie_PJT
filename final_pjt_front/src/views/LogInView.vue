@@ -1,6 +1,6 @@
 <template>
   <div id="login-page">
-    <h1>LogIn Page</h1>
+    <h1>Login Page</h1>
     <form @submit.prevent="logIn">
       <label for="username">username : </label>
       <input class="login-input" type="text" id="username" v-model="username"><br>
@@ -10,6 +10,10 @@
       <br>
       <input class="login-button" type="submit" value="logIn">
     </form>
+    <hr>
+    <h5>아직 아이디가 없으신가요?</h5>
+    <br>
+    <router-link id="signup-button2"  :to="{name:'signup'}">회원가입</router-link>
   </div>
 </template>
 
@@ -38,6 +42,7 @@ export default {
 </script>
 
 <style>
+
 #login-page {
   background-image: url('https://s3-alpha-sig.figma.com/img/7029/d866/6a0bc64361956279c8e2ad111b7e1ee4?Expires=1669593600&Signature=dWzRumG~iEqwBLjwHyPBvzKr63REFXC1ejrym2PLHtqbCKFABmCSnmHkZe-lKZQ~f7EHqeXl74eEpKOTAgL39s2I4HIFIaznFnZZlgx8ENO1gEot7n9sA~TOR2HMjYI4wB7xKJOEx19dBxX~9ltt1jFeuYCg1RhcEvEq1oO-2Qva7zjZhFd1DdemukuATQaAU7p5SnA~9ABRGPS78gXieoqimdc1pmfVFFPpKOmzNIOYLoZRgzpn0dA6fk5csYBrPliZ6N9t5c27UtFAQDJ2sewKfVjgPZ-FFC~F5XKLZX8d9TR40ce~MOERFbfxA1nY6Ch4z0vQ-rJ75Kit6LXbTw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
   background-size: 100vw 100vh;
@@ -78,5 +83,24 @@ export default {
   transform: translateY(-0.25em);
 
 }
+#signup-button2 {
+  width: 50px;
+  background-color: white;
+  border: 2px solid black;
+  line-height: 1;
+  font: inherit;
+  font-style: bold;
+  color: black;
+  font-size: 0.9rem;
+  margin: 2em;
+  padding: 0.4em;
+  font-weight: bold;
+  text-decoration: none;
+}
+#signup-button2:hover {
+  background-color: rgb(75, 4, 20);
+  transition: all .5s;
+  transform: translateY(-0.25em);
 
+}
 </style>

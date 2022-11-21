@@ -21,7 +21,7 @@ Vue.use(VueRouter)
 //     }
 // })
 // 이거 고치기 !!
-const isLoggedIn = false
+const isLoggedIn = true
 const routes = [
   {
     path: '/',
@@ -84,7 +84,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   // 로그인 여부 : 고치기..
-  const isLoggedIn = false
+  const isLoggedIn = true
 
   // 로그인이 필요한 페이지
   const authPages = ['recommended', 'mypage']

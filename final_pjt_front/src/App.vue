@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <div style="width: 100%;">
+    <div class="navbar-box" style="width: 100%;">
       <nav class="nav-bar">
         <span>
           <router-link style="text-decoration:none; color: white;" :to="{name:'home'}">Home</router-link> |
           <router-link style="text-decoration:none; color: white;" :to="{name:'recommended'}">Recommend</router-link> |
-          <router-link style="text-decoration:none; color: white;" :to="{name:'signup'}">SignUp</router-link> |
-          <router-link style="text-decoration:none; color: white;" :to="{name:'login'}">LogIn</router-link> |
+          <!-- <router-link style="text-decoration:none; color: white;" :to="{name:'signup'}">SignUp</router-link> | -->
+          <router-link v-if="isLoggedIn" @click="logout" style="text-decoration:none; color: white;" :to="{name:'home'}">Logout</router-link>
+          <router-link v-else type="button" style="text-decoration:none; color: white;" :to="{name:'login'}">LogIn</router-link> |
           <router-link style="text-decoration:none; color: white;" :to="{name:'mypage'}">MyPage</router-link>
         </span>
       </nav>
@@ -22,6 +23,17 @@ export default {
   name: 'App',
   components: {
     
+  },
+  data() {
+    // 로그인 정보 담아오기
+    return {
+      isLoggedIn : true
+    }
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout')
+    }
   }
 }
 </script>
@@ -44,6 +56,10 @@ export default {
 
 body {
   margin: 0;
+}
+
+.navbar-box {
+  background-color: rgb(11, 18, 36);
 }
 
 .nav-bar {
