@@ -3,7 +3,8 @@
     <div class="modal-container">
       <slot />
       <a @click="$emit('close-modal'), hideModal()" class="modal-close-button">
-        <i class="fa-solid fa-xmark close-mark"></i>
+        x
+        <!-- <i class="fa-solid fa-xmark close-mark"></i> -->
       </a>
     </div>
   </transition>

@@ -1,17 +1,19 @@
 <template>
   <div class="swiper-box">
     <swiper class="swiper" :options="swiperOption">
-      <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 4</swiper-slide>
-      <swiper-slide>Slide 5</swiper-slide>
-      <swiper-slide>Slide 6</swiper-slide>
-      <swiper-slide>Slide 7</swiper-slide>
-      <swiper-slide>Slide 8</swiper-slide>
-      <swiper-slide>Slide 9</swiper-slide>
-      <swiper-slide>Slide 10</swiper-slide>
-      <!-- <br><br><br><br> -->
+      <swiper-slide v-for="(movie, idx) in movies" :key="idx" :movie="movie">
+        <MovieCard :movie="movie" />
+      </swiper-slide>
+      <!-- <swiper-slide>
+        <MovieCard v-for="(movie, idx) in movies" :key="idx" :movie="movie"/>
+      </swiper-slide>
+      <swiper-slide>
+        <MovieCard v-for="(movie, idx) in movies" :key="idx" :movie="movie"/>
+      </swiper-slide>
+      <swiper-slide>
+        <MovieCard v-for="(movie, idx) in movies" :key="idx" :movie="movie"/>
+      </swiper-slide> -->
+      <br><br><br><br>
       <div class="swiper-pagination" slot="pagination"></div>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
@@ -21,20 +23,41 @@
 
 <script>
 import 'swiper/dist/css/swiper.css'
+// import MovieList from '@/components/MovieList.vue'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+// import { swiper, } from 'vue-awesome-swiper'
+import MovieCard from '@/components/MovieCard.vue'
+
 
 export default {
   name:'TheSwiper',
   components: {
     swiper,
-    swiperSlide
+    swiperSlide,
+    MovieCard,
+    // MovieList,
+  },
+  props :{
+    movies : {
+      type: Array,
+    },
   },
   data() {
     return {
       swiperOption: {
-        slidesPerView: 5,
-        spaceBetween: 30,
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: '5',
         loop: true,
+        coverflowEffect: {
+          rotate: 30,
+          stretch: 0,
+          depth: 200,
+          modifier: 0.5,
+          slideShadows : true,
+        },
+        spaceBetween: 50,
         pagination: {
           el: '.swiper-pagination',
           clickable: true
@@ -49,7 +72,12 @@ export default {
         },
       }
     }
-    }
+  },
+  
+  // mounted() {
+	// 		//console.log('Current Swiper instance object', this.swiper)
+	// 	this.swiper.slideTo(2, 1000, false)
+  // }
 }
 </script>
 
@@ -58,7 +86,6 @@ export default {
 .swiper {
   height: 300px;
   width: 80%;
-
 }
 
 swiper-slide {

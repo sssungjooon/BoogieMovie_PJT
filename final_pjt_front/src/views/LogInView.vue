@@ -1,5 +1,6 @@
 <template>
   <div id="login-page">
+    <br><br>
     <h1>Login Page</h1>
     <form @submit.prevent="logIn">
       <label for="username">username : </label>
@@ -44,7 +45,7 @@ export default {
 <style>
 
 #login-page {
-  background-image: url('https://s3-alpha-sig.figma.com/img/7029/d866/6a0bc64361956279c8e2ad111b7e1ee4?Expires=1669593600&Signature=dWzRumG~iEqwBLjwHyPBvzKr63REFXC1ejrym2PLHtqbCKFABmCSnmHkZe-lKZQ~f7EHqeXl74eEpKOTAgL39s2I4HIFIaznFnZZlgx8ENO1gEot7n9sA~TOR2HMjYI4wB7xKJOEx19dBxX~9ltt1jFeuYCg1RhcEvEq1oO-2Qva7zjZhFd1DdemukuATQaAU7p5SnA~9ABRGPS78gXieoqimdc1pmfVFFPpKOmzNIOYLoZRgzpn0dA6fk5csYBrPliZ6N9t5c27UtFAQDJ2sewKfVjgPZ-FFC~F5XKLZX8d9TR40ce~MOERFbfxA1nY6Ch4z0vQ-rJ75Kit6LXbTw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
+  background-image: url('@/assets/backgroundimage2.jpeg');
   background-size: 100vw 100vh;
   width: 100%;
   height:100vh;

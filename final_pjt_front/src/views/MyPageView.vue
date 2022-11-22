@@ -1,6 +1,6 @@
 <template>
   <div id="my-page">
-    
+    <br>
     <p>mypage</p>
     <UserReviewItem/>
   </div>

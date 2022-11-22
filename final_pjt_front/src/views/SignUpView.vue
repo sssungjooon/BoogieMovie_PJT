@@ -1,5 +1,6 @@
 <template>
   <div id="signup-page">
+    <br><br>
     <h1>Sign Up Page</h1><br>
     <form @submit.prevent="signUp">
       <label for="username">username : </label>
@@ -88,7 +89,7 @@ export default {
 
 <style>
 #signup-page {
-  background-image: url('https://s3-alpha-sig.figma.com/img/7029/d866/6a0bc64361956279c8e2ad111b7e1ee4?Expires=1669593600&Signature=dWzRumG~iEqwBLjwHyPBvzKr63REFXC1ejrym2PLHtqbCKFABmCSnmHkZe-lKZQ~f7EHqeXl74eEpKOTAgL39s2I4HIFIaznFnZZlgx8ENO1gEot7n9sA~TOR2HMjYI4wB7xKJOEx19dBxX~9ltt1jFeuYCg1RhcEvEq1oO-2Qva7zjZhFd1DdemukuATQaAU7p5SnA~9ABRGPS78gXieoqimdc1pmfVFFPpKOmzNIOYLoZRgzpn0dA6fk5csYBrPliZ6N9t5c27UtFAQDJ2sewKfVjgPZ-FFC~F5XKLZX8d9TR40ce~MOERFbfxA1nY6Ch4z0vQ-rJ75Kit6LXbTw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
+  background-image: url('@/assets/backgroundimage2.jpeg');
   background-size: 100vw 100vh;
   width: 100%;
   height:100vh;
@@ -104,7 +105,7 @@ export default {
 }
 .genre-buttons .raise:hover,
 .genre-buttons .raise-focus {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   box-shadow: 0 0.5em 0.5em -0.4em #b10101;
   border: 2px solid #b10107a1;
   transform: translateY(-0.25em);
@@ -122,7 +123,7 @@ export default {
   margin: 0.5em;
   padding: 0.5em;
   color: white;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   transition: all .5s;
 }
 
