@@ -5,7 +5,11 @@
     <br>
     <TheSwiper/>
     <div>
-      <MovieList :movies="selectedMovies" />
+      <MovieList :movies="latest_movies" />
+    </div>
+    <br>
+    <div>
+      <MovieList :movies="highscore_movies" />
     </div>
   </div>
 </template>
@@ -15,6 +19,7 @@
 import MainPage from '@/components/MainPage.vue'
 import MovieList from '@/components/MovieList.vue'
 import TheSwiper from '@/components/TheSwiper.vue'
+import axios from 'axios'
 
 export default {
   name: 'HomeView',
@@ -25,11 +30,26 @@ export default {
   },
   data: function() {
     return {
-      selectedMovies: [],
-
+      //selectedMovies: [],
+      latest_movies : [],
+      highscore_movies : [],
     }
   },
   // selected 메서드(알고리즘) 작성(MainRecommendVue참고)
+  methods : {
+    getLatestMovies : function(){
+      const link2 = 'http://127.0.0.1:8000/movies/'
+      axios.get(link2)
+        .then(res =>{
+          this.latest_movies = res.data.latest_movies
+          this.highscore_movies = res.data.highscore_movies
+          //this.like_movies = res.data.like_movies
+        })
+    }
+  },
+  created : function(){
+    this.getLatestMovies()
+  },
 }
 </script>
 

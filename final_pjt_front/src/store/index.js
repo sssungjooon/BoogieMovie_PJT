@@ -17,6 +17,7 @@ export default new Vuex.Store({
   ],
   state: {
     articles: [],
+    movies : [],
     token: null,
   },
   getters: {
@@ -25,33 +26,28 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    GET_ARTICLES(state, articles) {
-      state.articles = articles
+    GET_MOVIES(state, movies) {
+      state.movies = movies
     },
     // 회원가입 && 로그인
     SAVE_TOKEN(state, token) {
       state.token = token
-      router.push({ name: 'ArticleView' })
-    },
-    LOGOUT(state) {
-      state.username = null
-      localStorage.removeItem('username')
-      location.reload();
+      router.push({ name: 'home' })
     }
   },
   actions: {
-    getArticles(context) {
+    getMovies(context) {
       axios({
         method: 'get',
-        url: `${API_URL}/api/v1/articles/`,
+        url: `${API_URL}/movies/`,
         headers: {
           Authorization: `Token ${context.state.token}`
         }
       })
         .then((res) => {
           // console.log(res, context)
-          // console.log(res.data)
-          context.commit('GET_ARTICLES', res.data)
+          console.log(res.data)
+          context.commit('GET_MOVIES', res.data)
         })
         .catch((err) => {
           console.log(err)
@@ -85,9 +81,6 @@ export default new Vuex.Store({
           // console.log(res)
           context.commit('SAVE_TOKEN', res.data.key)
         })
-    },
-    logout({commit}) {
-      commit('LOGOUT')
     },
   },
   modules: {
