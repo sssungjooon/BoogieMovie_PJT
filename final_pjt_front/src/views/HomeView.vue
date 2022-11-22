@@ -10,6 +10,8 @@
       <MovieList :movies="latest_movies" />
     </div>
     <br>
+    <hr>
+    <br>
     <h1>높은 평점의 영화들</h1>
     <div>
       <MovieList :movies="highscore_movies" />

@@ -9,6 +9,7 @@ urlpatterns = [
     # path('tournament', views.tournament, name='tournament'),
     path('', views.main),
     path('detail/<int:movie_pk>', views.movie_detail),
+    path('recommend', views.recommend),
     # path('tournament', views.tournament),
     path('mypageMovie/<str:username>', views.mypageMovie)
 ]
