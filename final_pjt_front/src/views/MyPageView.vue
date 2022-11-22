@@ -1,5 +1,6 @@
 <template>
   <div id="my-page">
+    
     <p>mypage</p>
     <UserReviewItem/>
   </div>
@@ -16,5 +17,11 @@ export default {
 </script>
 
 <style>
+#mypage {
+  width : 80%;
+  height: 100%;
+  background-color:navy;
+  border: 10px;
 
+}
 </style>

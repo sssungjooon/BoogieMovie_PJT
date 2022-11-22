@@ -3,6 +3,7 @@
     <p>123</p>
     <MainPage/>
     <br>
+    <TheSwiper/>
     <div>
       <MovieList :movies="selectedMovies" />
     </div>
@@ -13,11 +14,14 @@
 // @ is an alias to /src
 import MainPage from '@/components/MainPage.vue'
 import MovieList from '@/components/MovieList.vue'
+import TheSwiper from '@/components/TheSwiper.vue'
+
 export default {
   name: 'HomeView',
   components: {
     MainPage,
     MovieList,
+    TheSwiper,
   },
   data: function() {
     return {

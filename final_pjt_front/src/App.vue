@@ -27,7 +27,7 @@ export default {
   data() {
     // 로그인 정보 담아오기
     return {
-      isLoggedIn : true
+      isLoggedIn : false
     }
   },
   methods: {
