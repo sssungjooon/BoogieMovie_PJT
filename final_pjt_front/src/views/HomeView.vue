@@ -1,14 +1,16 @@
 <template>
   <div class="home">
-    <p>123</p>
+    <h1>부귀영화</h1>
     <MainPage/>
     <br>
     <TheSwiper :movies="latest_movies"/><br>
     <br>
+    <h1>지금 뜨는 영화들</h1>
     <div>
       <MovieList :movies="latest_movies" />
     </div>
     <br>
+    <h1>높은 평점의 영화들</h1>
     <div>
       <MovieList :movies="highscore_movies" />
     </div>

@@ -75,5 +75,12 @@ body {
   
 }
 
+@font-face {
+  font-family: 'samlip';
+  src: url(./fonts/SDSamliphopangcheTTFOutline.ttf) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 </style>
 

@@ -1,12 +1,15 @@
 <template>
   <div class="movie-info-section">
     <div class="trailer-container">
-      <iframe :src="trailerURL" frameborder="0"></iframe>
+      <iframe :src="videoUrl" frameborder="0"></iframe>
     </div>
     <section class="information-container">
         <h2 class="movie-title">{{ movieName }}</h2>
+        <div class="transformers-right">
+          <StarRating :rating="parseFloat(movieVote) / 2" :read-only="true" :increment="0.01"/>
+        </div>
         <div class="score-like-button-box">
-          <h2 class="movie-score">{{ movie.vote_average }}</h2>          
+          <!-- <h2 class="movie-score">{{ movieVote }}</h2>           -->
           <h2 class="movie-button">
               <i class="fa-solid fa-heart-circle-plus" id="movie-normal-button" v-if='normal' @click='movielike(), normal=false, like=true'/>
               <i class="fa-solid fa-heart-circle-check" id="movie-like-button" v-if='like' @click='movielike(), like=false, dislike=true'/>
@@ -15,7 +18,7 @@
         </div>
     </section>
     <div class="overview-container">
-      {{ movie.overview }}
+      {{ movieOverview }}
     </div>
   </div>
 </template>
@@ -25,12 +28,19 @@
 // import drf from '@/api/drf'
 import { mapGetters } from 'vuex'
 // import secret_data from "@/assets/secrets.json"
+import StarRating from 'vue-star-rating'
 
 export default {
   name: "MovieDetailInfoSection",
   props: {
     movieId: Number,
     movieName: String,
+    movieVideo: String,
+    movieOverview: String,
+    movieVote: Number,
+  },
+  components: {
+    StarRating,
   },
   data: function () {
     return {
@@ -50,9 +60,14 @@ export default {
   //     })
   //   },
   // },
-  computed: {
-    ...mapGetters(['authHeader'])
-  },
+    computed : {
+      videoUrl() {
+        const videoId = this.movieVideo
+        const VIDEO_URL = `https://www.youtube.com/embed/${videoId}`
+        return VIDEO_URL
+      },
+      ...mapGetters(['authHeader'])
+    },
   // created () {
   //   const tmdbAPI = secret_data.TMDB_API_KEY
   //   const youtubeAPI = secret_data.YOUTUBE_API_KEY

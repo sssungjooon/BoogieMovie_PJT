@@ -34,7 +34,7 @@ class MovieSerializer(serializers.ModelSerializer): # 데이터 넣을 때
    
     class Meta : 
         model = Movie
-        fields = ('id', 'title', 'overview', 'poster_path', 'vote_average')
+        fields = ('id', 'title', 'overview', 'poster_path', 'vote_average', 'video_path')
         # fields="__all__"
 
 class MovieDetailSerializer(serializers.ModelSerializer): # 영화상세

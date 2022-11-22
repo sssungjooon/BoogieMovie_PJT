@@ -2,7 +2,7 @@
   <div>
     <section id="movie-detail-section">
       <div id="detail-info-flex">
-        <MovieDetailInfo :movieId="movieId" :movieName="movieName"/>
+        <MovieDetailInfo :movieId="movieId" :movieName="movieName" :movieVideo="movieVideo" :movieOverview="movieOverview" :movieVote="movieVote"/>
       </div>
       <div id="review-flex">
         <MovieDetailReview :movieId="movieId" />
@@ -19,6 +19,9 @@ export default {
   props: {
     movieId: Number,
     movieName: String,
+    movieVideo: String,
+    movieOverview: String,
+    movieVote: Number,
   },
   components: {
     MovieDetailInfo,

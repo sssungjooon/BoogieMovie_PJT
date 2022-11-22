@@ -1,7 +1,7 @@
 <template>
  <div class="col">
   <ModalView v-if="isModalViewed" @close-modal="isModalViewed=false">
-    <MovieDetail :movieId="movie.id || movie.tmdb_movie_id" :movieName="movie.title || movie.name"/>
+    <MovieDetail :movieId="movie.id || movie.tmdb_movie_id" :movieName="movie.title || movie.name" :movieVideo="movie.video_path" :movieOverview="movie.overview" :movieVote="movie.vote_average" />
   </ModalView>
   <div class="flip-card" @click="isModalViewed=true, showModal()">
     <div class="card-front">
@@ -19,13 +19,16 @@
 
       <ul class="card-ul">
         <li>{{ movie.title || movie.name }}</li>
-        <div class="star-box">
+        <div class="transformers-right">
+          <StarRating :rating="parseFloat(movie.vote_average) / 2" :read-only="true" :increment="0.01"/>
+        </div>
+        <!-- <div class="star-box">
           <i :id="idPath" data-id="1" class="fa-solid fa-star"></i>
           <i :id="idPath" data-id="2" class="fa-solid fa-star"></i>
           <i :id="idPath" data-id="3" class="fa-solid fa-star"></i>
           <i :id="idPath" data-id="4" class="fa-solid fa-star"></i>
           <i :id="idPath" data-id="5" class="fa-solid fa-star"></i>
-        </div>
+        </div> -->
       </ul>
     </div>
   </div>
@@ -36,6 +39,7 @@
 import ModalView from "@/components/ModalView.vue"
 import MovieDetail from "@/components/MovieDetail.vue"
 import notFoundImg from '@/assets/not-found-image.jpeg'
+import StarRating from 'vue-star-rating'
 
 export default {
   name: 'MovieCard',
@@ -45,6 +49,7 @@ export default {
   components: {
     ModalView,
     MovieDetail,
+    StarRating,
   },
   data: function () {
     return {
