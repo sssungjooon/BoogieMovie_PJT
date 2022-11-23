@@ -6,6 +6,7 @@ import LogInView from '../views/LogInView.vue'
 import MyPageView from '../views/MyPageView.vue'
 import RecommendedView from '../views/RecommendedView.vue'
 import NotFound404 from '../views/NotFound404'
+import store from '../store/index.js'
 Vue.use(VueRouter)
 
 
@@ -21,7 +22,8 @@ Vue.use(VueRouter)
 //     }
 // })
 // 이거 고치기 !!
-const isLoggedIn = true
+//const isLoggedIn = true
+const isLoggedIn = store.state.token
 const routes = [
   {
     path: '/',
@@ -82,9 +84,12 @@ const router = new VueRouter({
   routes
 })
 
+export default router
+
 router.beforeEach((to, from, next) => {
   // 로그인 여부 : 고치기..
-  const isLoggedIn = true
+  // 2022.11.23 const isLoggedIn = true
+  const isLoggedIn = store.state.token
 
   // 로그인이 필요한 페이지
   const authPages = ['recommended', 'mypage']
@@ -104,4 +109,3 @@ router.beforeEach((to, from, next) => {
 })
 
 
-export default router

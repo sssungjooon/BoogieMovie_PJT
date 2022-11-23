@@ -18,7 +18,11 @@ export default new Vuex.Store({
   state: {
     articles: [],
     movies : [],
+    logedin_user: null,
+    user_info: null,
+    user_detail: null,
     token: null,
+    //isLoggedIn : store.state.token, 
   },
   getters: {
     isLogin(state) {
@@ -33,7 +37,24 @@ export default new Vuex.Store({
     SAVE_TOKEN(state, token) {
       state.token = token
       router.push({ name: 'home' })
-    }
+    },
+    GET_LOGIN_USER(state, logedin_user) {
+      state.logedin_user = logedin_user
+      state.user_info = logedin_user
+    },
+    LOG_OUT(state) {
+      //state.recommend_movies = null
+      state.logedin_user = null
+      state.token = null
+
+      localStorage.removeItem('logedin_user')
+      localStorage.removeItem('token')
+
+      //router.push('/')
+    },
+    GET_USER_INFO(state, user_detail) {
+      state.user_detail = user_detail
+    },
   },
   actions: {
     getMovies(context) {
@@ -53,6 +74,34 @@ export default new Vuex.Store({
           console.log(err)
         })
     },
+    getReview(context) {
+      axios({
+        method : 'get',
+        url: `${API_URL}/api/v1/articles/`,
+        headers: {
+          Authorization: `Token ${ context.state.token }`
+        }
+      })
+        .then(res =>
+          context.commit('GET_REVIEWS', res.data)
+        )
+        .catch(err => console.log(err))
+    },
+    // signUp(context, payload) {
+    //   axios({
+    //     method: 'post',
+    //     url: `${API_URL}/accounts/signup/`,
+    //     data: {
+    //       username: payload.username,
+    //       password1: payload.password1,
+    //       password2: payload.password2,
+    //     }
+    //   })
+    //     .then((res) => {
+    //       // console.log(res)
+    //       context.commit('SAVE_TOKEN', res.data.key)
+    //     })
+    // },
     signUp(context, payload) {
       axios({
         method: 'post',
@@ -60,13 +109,28 @@ export default new Vuex.Store({
         data: {
           username: payload.username,
           password1: payload.password1,
-          password2: payload.password2,
+          password2: payload.password2
         }
       })
-        .then((res) => {
-          // console.log(res)
-          context.commit('SAVE_TOKEN', res.data.key)
+      .then((response) => {
+        context.commit('SAVE_TOKEN', response.data.key)
+        axios({
+          method: 'get',
+          url: `${API_URL}/accounts/user/`,
+          headers: {
+            Authorization: `Token ${response.data.key}`
+          },
         })
+        .then((response) => {
+          context.commit('GET_LOGIN_USER', response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     },
     logIn(context, payload) {
       axios({
@@ -77,12 +141,58 @@ export default new Vuex.Store({
           password: payload.password,
         }
       })
-        .then((res) => {
-          // console.log(res)
-          context.commit('SAVE_TOKEN', res.data.key)
+      .then((response) => {
+        context.commit('SAVE_TOKEN', response.data.key)
+        axios({
+          method: 'get',
+          url: `${API_URL}/accounts/user/`,
+          headers: {
+            Authorization: `Token ${response.data.key}`
+          },
         })
+        .then((response) => {
+          context.commit('GET_LOGIN_USER', response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+        window.alert('아이디와 비밀번호를 확인해주세요.')
+      })
+    },
+    getLoginUser(context) {
+      axios({
+        method: 'get',
+        url: `${API_URL}/accounts/user/`,
+        headers: {
+          Authorization: `Token ${context.state.token}`
+        },
+      })
+      .then((response) => {
+        context.commit('GET_LOGIN_USER', response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    },
+    getUserInfo(context, user_pk){
+      axios({
+        method: 'get',
+        url: `${API_URL}/accounts_detail/${user_pk}`,
+        headers: {
+          Authorization: `Token ${context.state.token}`
+        },
+      })
+      .then((response) => {
+        context.commit('GET_USER_INFO', response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     },
   },
   modules: {
-  }
-})
+    },
+  })

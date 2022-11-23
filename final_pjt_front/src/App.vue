@@ -6,8 +6,9 @@
           <router-link style="text-decoration:none; color: white;" :to="{name:'home'}">Home</router-link> |
           <router-link style="text-decoration:none; color: white;" :to="{name:'recommended'}">Recommend</router-link> |
           <!-- <router-link style="text-decoration:none; color: white;" :to="{name:'signup'}">SignUp</router-link> | -->
-          <router-link v-if="isLoggedIn" @click="logout" style="text-decoration:none; color: white;" :to="{name:'home'}">Logout</router-link>
-          <router-link v-else type="button" style="text-decoration:none; color: white;" :to="{name:'login'}">LogIn</router-link> |
+          <!-- <router-link v-if="isLogin" @click="logout" style="text-decoration:none; color: white;" :to="{name:'home'}">Logout</router-link> -->
+          <a id="logout" v-if="isLogin" style="text-decoration:none; color: white;" href="#" @click="logout">Logout</a>
+          <router-link v-if="!isLogin" type="button" style="text-decoration:none; color: white;" :to="{name:'login'}">LogIn</router-link> |
           <router-link style="text-decoration:none; color: white;" :to="{name:'mypage'}">MyPage</router-link>
         </span>
       </nav>
@@ -17,24 +18,32 @@
 </template>
 
 <script>
-
+//import store from '@/store/index.js'
  
 export default {
   name: 'App',
   components: {
     
   },
-  data() {
-    // 로그인 정보 담아오기
-    return {
-      isLoggedIn : false
-    }
-  },
+  // data() {
+  //   // 로그인 정보 담아오기
+  //   return {
+  //     isLoggedIn : store.state.token
+  //   }
+  // },
   methods: {
     logout() {
-      this.$store.dispatch('logout')
+      this.$store.commit('LOG_OUT')
+      //console.log('12364')
+      //this.$store.dispatch('logout')
     }
-  }
+  },
+  computed: {
+    isLogin() {
+      return this.$store.getters.isLogin
+    }
+  },
+
 }
 </script>
 

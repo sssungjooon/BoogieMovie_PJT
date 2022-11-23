@@ -91,3 +91,9 @@ def profile(request, username):
         # 'email_hash':email_hash,
     }
     return JsonResponse(context)
+
+@api_view(['GET'])
+def user_detail(request, user_pk):
+    user = get_user_model().objects.get(pk=user_pk)
+    serializer = UserDetailSerializers(user)
+    return Response(serializer.data)
