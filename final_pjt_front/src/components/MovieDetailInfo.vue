@@ -5,6 +5,7 @@
     </div>
     <section class="information-container">
         <h2 class="movie-title">{{ movieName }}</h2>
+        <h4 class="movie-date">{{ movieDate }}</h4>
         <div class="transformers-right">
           <StarRating :rating="parseFloat(movieVote) / 2" :read-only="true" :increment="0.01"/>
         </div>
@@ -38,6 +39,7 @@ export default {
     movieVideo: String,
     movieOverview: String,
     movieVote: Number,
+    movieDate: Date,
   },
   components: {
     StarRating,

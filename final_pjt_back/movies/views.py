@@ -81,16 +81,21 @@ def recommend(request) :
     # 1. 크리스마스 영화 추천 => romance 장르(10749) + christmas keyword(207317)
     #christmas_movies = (Movie.objects.filter(keywords=207317) + Movie.objects.filter(genres=10749))[:5] => query + query라 오류발생
     christmas_movies = (Movie.objects.filter(genres=10749))[:5]
-    # 2. 해당 연도에는 이런 영화가? (2021년)
-    datetime_movies = Movie.objects.filter(release_date__gte=datetime.date(2021, 1, 1)).filter(release_date__lte=datetime.date(2021, 12, 31))[:10]
+    # 2. 해당 연도에는 이런 영화가? (2010년대)
+    datetime_movies = Movie.objects.filter(release_date__gte=datetime.date(2010, 1, 1)).filter(release_date__lte=datetime.date(2019, 12, 31))[:12]
+    # 3. 히어로 영화만 모아서 보자
+    hero_movies = Movie.objects.filter(keywords=1701)
+
 
     # serializer
     christmas_serializer = MovieSerializer(data=christmas_movies, many=True)
     datetime_serializer = MovieSerializer(data=datetime_movies, many=True)
-    print(christmas_serializer.is_valid(), datetime_serializer.is_valid())
+    hero_serializer = MovieSerializer(data=hero_movies, many=True)
+    print(christmas_serializer.is_valid(), datetime_serializer.is_valid(), hero_serializer.is_valid())
 
     context={
         'christmas_movies' : christmas_serializer.data,
         'datetime_movies' : datetime_serializer.data,
+        'hero_movies' : hero_serializer.data,
     }
     return Response(context)

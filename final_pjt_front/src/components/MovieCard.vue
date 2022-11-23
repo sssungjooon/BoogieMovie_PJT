@@ -1,7 +1,7 @@
 <template>
  <div class="col">
   <ModalView v-if="isModalViewed" @close-modal="isModalViewed=false">
-    <MovieDetail :movieId="movie.id || movie.tmdb_movie_id" :movieName="movie.title || movie.name" :movieVideo="movie.video_path" :movieOverview="movie.overview" :movieVote="movie.vote_average" />
+    <MovieDetail :movieId="movie.id || movie.tmdb_movie_id" :movieName="movie.title || movie.name" :movieVideo="movie.video_path" :movieOverview="movie.overview" :movieVote="movie.vote_average" :movieDate="movie.release_date"/>
   </ModalView>
   <div class="flip-card" @click="isModalViewed=true, showModal()">
     <div class="card-front">
@@ -113,6 +113,7 @@ export default {
   position: relative;
   transform-style: preserve-3d;
   transition: .3s .1s;
+  margin-left : 2rem;
 }
 
 .flip-card:hover,

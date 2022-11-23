@@ -16,6 +16,9 @@
     <div>
       <MovieList :movies="highscore_movies" />
     </div>
+    <br>
+    <br>
+    <br>
   </div>
 </template>
 

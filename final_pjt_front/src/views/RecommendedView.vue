@@ -2,9 +2,12 @@
   <div>
     <br>
     <h1>Movies for you</h1>
+    <h1>당신을 위한 영화</h1>
     <br>
     <div class="recommend-movies">
-      <h3>다가오는 크리스마스에는 이런 영화 어때요?</h3>
+      <div class="content1">
+        <img src="@/assets/christmas-tree.jpg" class="tree"/><h3 class = "text1">다가오는 크리스마스에는 이런 영화 어때요?</h3><img src="@/assets/christmas-tree.jpg" class="tree"/>
+      </div>
       <br>
       <div>
         <MovieList :movies="christmas_movies" />
@@ -12,7 +15,7 @@
       <br>
       <hr>
       <br>
-      <h3>2021년도에는 이런 영화가?</h3>
+      <h3>2010년 대에는 이런 영화가?</h3>
       <br>
       <div>
         <MovieList :movies="datetime_movies" />
@@ -20,10 +23,10 @@
       <br>
       <hr>
       <br>
-      <h3>다가오는 크리스마스에는 이런 영화 어때요?</h3>
+      <h3>히어로 영화 좋아하는 사람은 여기로!</h3>
       <br>
       <div>
-        <MovieList :movies="christmas_movies" />
+        <MovieList :movies="hero_movies" />
       </div>
       <br>
       <br>
@@ -48,6 +51,7 @@ export default {
       //selectedMovies: [],
       christmas_movies : [],
       datetime_movies : [],
+      hero_movies : [],
     }
   },
   methods : {
@@ -57,6 +61,7 @@ export default {
         .then(res =>{
           this.christmas_movies = res.data.christmas_movies
           this.datetime_movies = res.data.datetime_movies
+          this.hero_movies = res.data.hero_movies
           //this.highscore_movies = res.data.highscore_movies
           //this.like_movies = res.data.like_movies
         })
@@ -75,5 +80,16 @@ export default {
   text-align: left;
   margin: 2rem;
 }
+
+.tree {
+  width: 30px;
+  height: 30px;
+  }
+
+.content1{
+    display: flex;
+    align-items: center;
+}
+
 
 </style>
