@@ -1,8 +1,9 @@
 <template>
   <div>
-    <br>
+    <br><br><br>
     <h1>Movies for you</h1>
     <h1>당신을 위한 영화</h1>
+    <hr>
     <br>
     <div class="recommend-movies">
       <div class="content1">

@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="review-page">
+    <br><br>
     <h1>Review Page</h1>
     <router-link :to="{ name: 'CreateView' }">[CREATE]</router-link>
     <hr>
@@ -38,5 +39,12 @@ export default {
 </script>
 
 <style>
-
+.review-page {
+  width : 100vw;
+  height: 100vh;
+  border: 10px;
+  display: static;
+  z-index: 1;
+  justify-content: space-between;
+}
 </style>

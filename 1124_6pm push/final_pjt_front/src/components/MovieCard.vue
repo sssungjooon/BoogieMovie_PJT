@@ -20,7 +20,7 @@
       <ul class="card-ul">
         <li>{{ movie.title || movie.name }}</li>
         <div class="transformers-right">
-          <StarRating :rating="parseFloat(movie.vote_average) / 2" :read-only="true" :increment="0.01"/>
+          <StarRating :rating="parseFloat(movie.vote_average) / 2" :read-only="true" :increment="0.01" class="card-star"/>
         </div>
         <!-- <div class="star-box">
           <i :id="idPath" data-id="1" class="fa-solid fa-star"></i>
@@ -120,6 +120,10 @@ export default {
 .flip-card:hover,
 .flip-card:focus {
   transform: rotateY(180deg);
+}
+
+.transformers-right {
+  justify-content: center;
 }
 
 .card-front,

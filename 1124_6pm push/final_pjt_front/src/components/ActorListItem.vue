@@ -3,7 +3,7 @@
     <div class="photo-container">
       <img :src="actor_profile" class="actor_pic" />
     </div>
-    <h5>{{ actor_name }}</h5>
+    <h6>{{ actor_name }}</h6>
   </div>
 </template>
 

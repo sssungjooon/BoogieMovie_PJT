@@ -2,7 +2,7 @@
   <div class="swiper-box">
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide v-for="(movie, idx) in movies" :key="idx" :movie="movie">
-        <MovieCard :movie="movie" />
+        <MovieCard2 :movie="movie" />
       </swiper-slide>
       <!-- <swiper-slide>
         <MovieCard v-for="(movie, idx) in movies" :key="idx" :movie="movie"/>
@@ -26,7 +26,7 @@ import 'swiper/dist/css/swiper.css'
 // import MovieList from '@/components/MovieList.vue'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 // import { swiper, } from 'vue-awesome-swiper'
-import MovieCard from '@/components/MovieCard.vue'
+import MovieCard2 from '@/components/MovieCard.vue'
 
 
 export default {
@@ -34,7 +34,7 @@ export default {
   components: {
     swiper,
     swiperSlide,
-    MovieCard,
+    MovieCard2,
     // MovieList,
   },
   props :{
@@ -57,7 +57,7 @@ export default {
           modifier: 0.5,
           slideShadows : true,
         },
-        spaceBetween: 50,
+        spaceBetween: 30,
         pagination: {
           el: '.swiper-pagination',
           clickable: true

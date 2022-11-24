@@ -1,24 +1,33 @@
 <template>
 	<div class="second-info-section">
-		<div>
+		<div class="detail-genre">
 			<h4>장르 : </h4>
+			<br>
 			<div>
 				<p v-for="genre in movieGenre" :key="genre">{{ genre_name }} </p>
 			</div>
 		</div>
 			<!-- <a v-for="(genre, idx) in movieGenre" :key="idx" :genre="genre">{{ genre_name }}</a> -->
-		<section class="information-container">
-			<h2 class="actor_info">배우 정보</h2>
-			<!-- <MovieCard v-for="(movie, idx) in movies" :key="idx" :movie="movie" /> -->
-			<ActorListItem v-for="(actor, idx) in movieActor" :key="idx" :actor="actor"/>
-		</section>
-		<b-button v-b-modal.modal.modal-1>더보기</b-button>
-		
-		<b-modal id="modal-1" title="Actors & Keywords" ok-only hide-header-close>
-			<p>Actors :</p>
-			<br>
-			<p>Keywords :</p>
-		</b-modal>
+		<div class="more-info">
+			<h4 class="actor_info">배우 정보</h4>
+			<section class="information-container">
+				<!-- <MovieCard v-for="(movie, idx) in movies" :key="idx" :movie="movie" /> -->
+				<ActorListItem v-for="(actor, idx) in movieActor" :key="idx" :actor="actor" class="actors"/>
+			</section>
+		</div>
+
+		<div class="add-button">
+			<a href="http://localhost:8080/review">
+				<button>Review</button>
+			</a>
+			<!-- <b-button v-b-modal.modal.modal-1>더보기</b-button>
+			
+			<b-modal id="modal-1" title="Actors & Keywords" ok-only hide-header-close>
+				<p>Actors :</p>
+				<br>
+				<p>Keywords :</p>
+			</b-modal> -->
+		</div>
 	</div>
 </template>
 
@@ -61,26 +70,35 @@ export default {
 
 <style>
 .actor_info {
-	text-align: top;
+	font-size: 25px;
+	text-align: left;
 }
 
-.information-container {
-	/* width: 100%; */
-  /* padding: 1rem; */
-  /* display: flex;
-  flex-direction: column;
-  /* align-items: flex-start; */
-	/* margin: 10px auto;
-	position :relative; */
+.add-button {
+	position: fixed;
+	top:60%;
+	right:17%;
+	
 }
 
-
-/* .second-info-section {
-  width: 100%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+/* .information-container {
+	position: fixed;
+	top:20%;
+	right:7%;
+	width: 30%;
 } */
 
+/* s */
+
+.second-info-section {
+	margin-top: 30px;
+}
+.detail-genre {
+	text-align: left;
+}
+
+
+.more-info {
+	width: auto;
+}
 </style>

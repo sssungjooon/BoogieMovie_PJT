@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <div class="navbar-box" style="width: 100%;">
-      <h4 class="app_title">부귀영화</h4>
+      <h5 class="app-title">부귀영화</h5>
       <nav class="nav-bar">
         <span>
           <router-link class="router" style="text-decoration:none; color: white;" :to="{name:'home'}">Home</router-link> |
           <router-link class="router" style="text-decoration:none; color: white;" :to="{name:'recommended'}">Recommend</router-link> |
-          <router-link class="router" v-if="!isLogin" type="button" style="text-decoration:none; color: white;" :to="{name:'login'}">LogIn</router-link> |
-          <a id="logout" class="router" v-if="isLogin" style="text-decoration:none; color: white;" href="#" @click="logout">Logout | </a>
+          <router-link class="router" v-if="!isLogin" type="button" style="text-decoration:none; color: white;" :to="{name:'login'}">LogIn</router-link> 
+          <a id="logout" class="router" v-if="isLogin" style="text-decoration:none; color: white;" href="#" @click="logout">Logout</a> |
           <router-link class="router" style="text-decoration:none; color: white;" :to="{name:'mypage'}">MyPage</router-link>
         </span>
       </nav>
@@ -67,6 +67,10 @@ body {
   margin: 0;
 }
 
+.app-title {
+  width:10%;
+}
+
 .navbar-box {
   background-color: rgb(11, 18, 36);
   position: fixed;
@@ -74,6 +78,7 @@ body {
   z-index: 10;
   display: flex;
   align-items: justify;
+  padding-top: 5px;
 }
 
 .router-view {

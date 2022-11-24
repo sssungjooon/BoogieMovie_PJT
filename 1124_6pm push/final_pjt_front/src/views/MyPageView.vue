@@ -1,7 +1,7 @@
 <template>
   <div class="my-page">
-    <br><br>
-    <p style="font-size:30px">MyPage</p><br><br>
+    <br><br><br>
+    <p style="font-size:30px">MyPage</p><br>
     <div id="mypage">
       <span class="mypage-router">
         <router-link class="router" style="text-decoration:none; color: white;" :to="{name:'likedmovies'}">Liked Movies</router-link> |

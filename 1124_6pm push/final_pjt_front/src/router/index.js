@@ -8,6 +8,7 @@ import RecommendedView from '../views/RecommendedView.vue'
 import LikedMoviesView from '../views/LikedMoviesView.vue'
 import UserReviewsView from '../views/UserReviewsView.vue'
 import ChangeInfoView from '../views/ChangeInfoView.vue'
+import ReviewView from '../views/ReviewView.vue'
 import NotFound404 from '../views/NotFound404'
 import store from '../store/index.js'
 Vue.use(VueRouter)
@@ -86,6 +87,11 @@ const routes = [
     path: '/recommended',
     name: 'recommended',
     component: RecommendedView
+  },
+  {
+    path: '/review',
+    name: 'review',
+    component: ReviewView
   },
   {
     path: '/404',

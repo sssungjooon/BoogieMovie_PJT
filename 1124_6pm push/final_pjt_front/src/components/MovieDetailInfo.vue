@@ -39,7 +39,7 @@ export default {
     movieVideo: String,
     movieOverview: String,
     movieVote: Number,
-    movieDate: Date,
+    movieDate: String,
   },
   components: {
     StarRating,

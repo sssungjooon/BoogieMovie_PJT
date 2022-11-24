@@ -7,7 +7,7 @@
       <!-- <div id="review-flex">
         <MovieDetailReview :movieId="movieId" />
       </div> -->
-      <div>
+      <div id="add-flex">
         <!-- 배우/키워드 작성해보기 -->
         <MovieDetailAdd :movieActor="movieActor" :movieGenre="movieGenre" class="more"/>
       </div>
@@ -27,7 +27,7 @@ export default {
     movieVideo: String,
     movieOverview: String,
     movieVote: Number,
-    movieDate: Date,
+    movieDate: String,
     movieActor: Array,
     movieGenre: Array,
   },
@@ -49,11 +49,8 @@ export default {
   width: 70%;
 }
 
-.more {
-  position: fixed;
-  top: 85%;
-  right: 6%;
-  margin: 2%;
+#add-flex {
+  width:28%;
 }
 
 #review-flex {
