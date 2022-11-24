@@ -1,7 +1,7 @@
 <template>
  <div class="col">
   <ModalView v-if="isModalViewed" @close-modal="isModalViewed=false">
-    <MovieDetail :movieId="movie.id || movie.tmdb_movie_id" :movieName="movie.title || movie.name" :movieVideo="movie.video_path" :movieOverview="movie.overview" :movieVote="movie.vote_average" :movieDate="movie.release_date"/>
+    <MovieDetail :movieId="movie.id || movie.tmdb_movie_id" :movieName="movie.title || movie.name" :movieVideo="movie.video_path" :movieOverview="movie.overview" :movieVote="movie.vote_average" :movieDate="movie.release_date" :movieActor="movie.actors" :movieGenre="movie.genres"/>
   </ModalView>
   <div class="flip-card" @click="isModalViewed=true, showModal()">
     <div class="card-front">

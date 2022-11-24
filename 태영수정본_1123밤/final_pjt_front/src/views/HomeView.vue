@@ -5,7 +5,7 @@
     <br>
     <MainPage/>
     <br>
-    <TheSwiper :movies="latest_movies"/><br>
+    <TheSwiper :movies="upcoming_movies"/><br>
     <br>
     <h1>지금 뜨는 영화들</h1><br>
     <div>
@@ -43,6 +43,7 @@ export default {
       //selectedMovies: [],
       latest_movies : [],
       highscore_movies : [],
+      upcoming_movies : [],
     }
   },
   // selected 메서드(알고리즘) 작성(MainRecommendVue참고)
@@ -55,10 +56,18 @@ export default {
           this.highscore_movies = res.data.highscore_movies
           //this.like_movies = res.data.like_movies
         })
-    }
+    },
+    getUpcomingMovies : function(){
+      const link4 = 'http://127.0.0.1:8000/movies/upcoming'
+      axios.get(link4)
+        .then(res =>{
+          this.upcoming_movies = res.data.upcoming_movies
+        })
+    },
   },
   created : function(){
     this.getLatestMovies()
+    this.getUpcomingMovies()
   },
 }
 </script>

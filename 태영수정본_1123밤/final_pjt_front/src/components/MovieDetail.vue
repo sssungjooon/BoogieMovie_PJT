@@ -9,7 +9,7 @@
       </div> -->
       <div>
         <!-- 배우/키워드 작성해보기 -->
-        <MovieDetailAdd class="more"/>
+        <MovieDetailAdd :movieActor="movieActor" :movieGenre="movieGenre" class="more"/>
       </div>
     </section>
   </div>
@@ -28,6 +28,8 @@ export default {
     movieOverview: String,
     movieVote: Number,
     movieDate: Date,
+    movieActor: Array,
+    movieGenre: Array,
   },
   components: {
     MovieDetailInfo,

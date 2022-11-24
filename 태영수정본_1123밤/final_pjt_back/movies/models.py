@@ -13,20 +13,6 @@ class Genre(models.Model):
 class Keyword(models.Model):
     name = models.CharField(max_length=100)
 
-# class Movie(models.Model):
-#     title = models.CharField(max_length=200)
-#     poster_path = models.CharField(max_length=100)
-#     popularity = models.IntegerField()
-#     vote_average = models.FloatField()
-#     release_date = models.CharField(max_length=100)
-#     overview = models.TextField()
-#     genre_ids = models.ManyToManyField(Genre)
-#     actor_ids = models.ManyToManyField(Actor)
-#     director_id = models.ForeignKey(Director, on_delete=models.CASCADE, related_name="movies")
-#     user_watched = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='watched_movie')
-#     user_wished = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="wish_movie")
-
-
 class Movie(models.Model):
     title = models.CharField(max_length=50)
     vote_average = models.FloatField()
@@ -35,6 +21,19 @@ class Movie(models.Model):
     genres = models.ManyToManyField(Genre, related_name="movies")
     actors = models.ManyToManyField(Actor, related_name="movies")
     keywords = models.ManyToManyField(Keyword, related_name="movies")
+    release_date = models.DateField()
+    # wish_user = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="wish_movie")
+    poster_path = models.CharField(max_length=200)
+    video_path = models.CharField(max_length=200)
+
+class Upcoming(models.Model):
+    title = models.CharField(max_length=50)
+    vote_average = models.FloatField()
+    vote_count = models.IntegerField()
+    overview = models.CharField(max_length=200)
+    genres = models.ManyToManyField(Genre, related_name="upcoming")
+    actors = models.ManyToManyField(Actor, related_name="upcoming")
+    keywords = models.ManyToManyField(Keyword, related_name="upcoming")
     release_date = models.DateField()
     # wish_user = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="wish_movie")
     poster_path = models.CharField(max_length=200)

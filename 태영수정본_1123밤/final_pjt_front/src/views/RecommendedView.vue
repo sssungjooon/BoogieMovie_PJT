@@ -1,9 +1,9 @@
 <template>
   <div>
-    <br><br>
+    <br>
     <h1>Movies for you</h1>
     <h1>당신을 위한 영화</h1>
-    <br><hr>
+    <br>
     <div class="recommend-movies">
       <div class="content1">
         <img src="@/assets/christmas-tree.jpg" class="tree"/><h3 class = "text1">다가오는 크리스마스에는 이런 영화 어때요?</h3><img src="@/assets/christmas-tree.jpg" class="tree"/>
@@ -23,7 +23,9 @@
       <br>
       <hr>
       <br>
-      <h3>히어로 영화 좋아하는 사람은 여기로!</h3>
+      <div class="content1">
+        <img src="@/assets/spiderman.png" class="spider"/><h3>히어로 영화 좋아하는 사람은 여기로!</h3><img src="@/assets/spiderman.png" class="spider"/>
+      </div>
       <br>
       <div>
         <MovieList :movies="hero_movies" />
@@ -85,6 +87,11 @@ export default {
   width: 30px;
   height: 30px;
   }
+
+.spider {
+  width: 30px;
+  height: 30px;
+}
 
 .content1{
     display: flex;

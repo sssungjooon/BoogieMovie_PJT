@@ -4,6 +4,7 @@ from .models import Genre
 from .models import Actor
 from .models import Keyword
 from .models import Movie
+from .models import Upcoming
 # from .models import Tournament
 
 class GenreSerializer(serializers.ModelSerializer):
@@ -34,7 +35,7 @@ class MovieSerializer(serializers.ModelSerializer): # 데이터 넣을 때
    
     class Meta : 
         model = Movie
-        fields = ('id', 'title', 'overview', 'poster_path', 'vote_average', 'video_path', 'release_date',)
+        fields = ('id', 'title', 'overview', 'poster_path', 'vote_average', 'video_path', 'release_date','actors', 'genres')
         # fields="__all__"
 
 class MovieDetailSerializer(serializers.ModelSerializer): # 영화상세
@@ -46,6 +47,11 @@ class MovieDetailSerializer(serializers.ModelSerializer): # 영화상세
         model = Movie
         fields = "__all__"
     
+class UpcomingSerializer(serializers.ModelSerializer): # 데이터 넣을 때
+   
+    class Meta : 
+        model = Upcoming
+        fields = ('id', 'title', 'overview', 'poster_path', 'vote_average', 'video_path', 'release_date',)
 # 해당 월에 맞는 장르 뽑아내기
 #class MonthGenreMatchSerializer(serializers.ModelSerializer):
 #    movies_by_genre = serializers.SerializerMethodField()

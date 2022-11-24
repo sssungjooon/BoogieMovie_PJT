@@ -4,8 +4,8 @@ from rest_framework.decorators import api_view
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 
-from .models import Movie, Genre
-from .serializers import MovieSerializer, MovieDetailSerializer
+from .models import Movie, Genre, Upcoming, Actor
+from .serializers import MovieSerializer, MovieDetailSerializer, UpcomingSerializer, ActorSerializer, GenreSerializer
 from django.shortcuts import render
 import datetime
 
@@ -80,7 +80,7 @@ def mypageMovie(request, username) :
 def recommend(request) :
     # 1. 크리스마스 영화 추천 => romance 장르(10749) + christmas keyword(207317)
     #christmas_movies = (Movie.objects.filter(keywords=207317) + Movie.objects.filter(genres=10749))[:5] => query + query라 오류발생
-    christmas_movies = (Movie.objects.filter(genres=10749))[:5]
+    christmas_movies = (Movie.objects.filter(genres=10749))[:12]
     # 2. 해당 연도에는 이런 영화가? (2010년대)
     datetime_movies = Movie.objects.filter(release_date__gte=datetime.date(2010, 1, 1)).filter(release_date__lte=datetime.date(2019, 12, 31))[:12]
     # 3. 히어로 영화만 모아서 보자
@@ -99,3 +99,25 @@ def recommend(request) :
         'hero_movies' : hero_serializer.data,
     }
     return Response(context)
+
+@api_view(['GET'])
+def upcomming(request) :
+    upcoming_movies = Upcoming.objects.order_by('-release_date').prefetch_related('genres')[:20]
+    upcoming_serializer = UpcomingSerializer(data=upcoming_movies, many=True)
+    print(upcoming_serializer.is_valid())
+    context={
+        'upcoming_movies' : upcoming_serializer.data,
+    }
+    return Response(context)
+
+@api_view(['GET'])
+def get_actor_info(request, actor_pk):
+    actor = get_object_or_404(Actor, pk=actor_pk)
+    serializer = ActorSerializer(actor)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def get_genre_info(request, genre_pk):
+    genre = get_object_or_404(Genre, pk=genre_pk)
+    serializer = GenreSerializer(genre)
+    return Response(serializer.data)
