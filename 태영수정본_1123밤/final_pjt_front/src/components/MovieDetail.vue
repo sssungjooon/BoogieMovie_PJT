@@ -9,7 +9,7 @@
       </div> -->
       <div>
         <!-- 배우/키워드 작성해보기 -->
-        <MovieDetailAdd/>
+        <MovieDetailAdd class="more"/>
       </div>
     </section>
   </div>
@@ -45,6 +45,13 @@ export default {
 
 #detail-info-flex {
   width: 70%;
+}
+
+.more {
+  position: fixed;
+  top: 85%;
+  right: 6%;
+  margin: 2%;
 }
 
 #review-flex {

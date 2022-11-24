@@ -15,8 +15,8 @@
       <br>
       <div id="genre-box">
         <h4 class="choose-text">Choose your favorite genres</h4>
-        <div class="genre-buttons">
-          <button @click="onSelectGenre" class="raise" data-id="878">SF</button>
+        <div class="genre-buttons" >
+          <button @click="onSelectGenre" class="raise" data-id="878" >SF</button>
           <button @click="onSelectGenre" class="raise" data-id="10770">TV영화</button>
           <button @click="onSelectGenre" class="raise" data-id="10751">가족</button>
           <button @click="onSelectGenre" class="raise" data-id="27">공포</button>
@@ -51,6 +51,7 @@ export default {
       username: null,
       password1: null,
       password2: null,
+      genres: [],
     }
   },
   methods: {
@@ -58,7 +59,7 @@ export default {
       const username = this.username
       const password1 = this.password1
       const password2 = this.password2
-
+      const genres = this.genres
       const payload = {
         // username,
         // password1,
@@ -66,10 +67,14 @@ export default {
         username: username,
         password1: password1,
         password2: password2,
+        genres: genres
       }
 
       this.$store.dispatch('signUp', payload)
-
+//       if (password1 != password2) {
+//         alert(`잘못 입력하셨습니다.
+// 같은 비밀번호를 입력해 주세요.`)
+      // }
     },
     onSelectGenre: function (event) {
       const genreId = event.target.dataset.id

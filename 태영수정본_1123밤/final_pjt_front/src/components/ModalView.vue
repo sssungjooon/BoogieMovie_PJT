@@ -35,9 +35,12 @@ export default {
 
 .modal-close-button {
   position: fixed;
-  top: 0%;
-  right: 0%;
+  top: 3%;
+  right: 4%;
   margin: 2%;
+  font-size: large;
+  color: white;
+  cursor: pointer;
 }
 
 .close-mark {

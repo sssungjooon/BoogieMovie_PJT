@@ -22,12 +22,18 @@ export default new Vuex.Store({
     user_info: null,
     user_detail: null,
     token: null,
+    loginAuthError: null,
+    signupAuthError: null,
+
     //isLoggedIn : store.state.token, 
   },
   getters: {
     isLogin(state) {
       return state.token ? true : false
-    }
+    },
+    loginAuthError: state => state.loginAuthError,
+    signupAuthError: state => state.signupAuthError,
+    authHeader: state => ({ Authorization: `Token ${state.token}`}),
   },
   mutations: {
     GET_MOVIES(state, movies) {
@@ -55,6 +61,8 @@ export default new Vuex.Store({
     GET_USER_INFO(state, user_detail) {
       state.user_detail = user_detail
     },
+    SET_LOGIN_AUTH_ERROR: (state, error) => state.loginAuthError = error,
+    SET_SIGNUP_AUTH_ERROR: (state, error) => state.signupAuthError = error,
   },
   actions: {
     getMovies(context) {
@@ -109,7 +117,8 @@ export default new Vuex.Store({
         data: {
           username: payload.username,
           password1: payload.password1,
-          password2: payload.password2
+          password2: payload.password2,
+          genres: payload.genres
         }
       })
       .then((response) => {
@@ -123,14 +132,30 @@ export default new Vuex.Store({
         })
         .then((response) => {
           context.commit('GET_LOGIN_USER', response.data)
+          // payload.genres.map(genreId => {
+          //   axios({
+          //     url: `${API_URL}/movies/`  `url/movies/${TMDBGenreId}/genre/` movies.likeGenre(genreId),
+          //     method: 'post',
+          //     headers: this.getters.authHeader
+          //   })
+          // })
         })
         .catch((error) => {
           console.log(error)
+          alert('잘못 입력하셨습니다.')
         })
       })
       .catch((error) => {
         console.log(error)
-      })
+        // if (this.username in  ) {
+        //   alert('이미 존재하는 아이디입니다.')
+        // }
+        if (this.password1 != this.password2) {
+          alert(`잘못 입력하셨습니다.
+  같은 비밀번호를 입력해 주세요.`)
+          } else {alert(`잘못 입력하셨습니다.
+비밀번호는 8자 이상이어야 합니다.`  )
+      }})
     },
     logIn(context, payload) {
       axios({

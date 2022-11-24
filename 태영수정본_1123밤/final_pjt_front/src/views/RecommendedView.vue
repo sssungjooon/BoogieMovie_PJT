@@ -1,9 +1,9 @@
 <template>
   <div>
-    <br>
+    <br><br>
     <h1>Movies for you</h1>
     <h1>당신을 위한 영화</h1>
-    <br>
+    <br><hr>
     <div class="recommend-movies">
       <div class="content1">
         <img src="@/assets/christmas-tree.jpg" class="tree"/><h3 class = "text1">다가오는 크리스마스에는 이런 영화 어때요?</h3><img src="@/assets/christmas-tree.jpg" class="tree"/>

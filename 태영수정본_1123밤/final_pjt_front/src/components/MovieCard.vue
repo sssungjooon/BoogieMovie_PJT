@@ -114,6 +114,7 @@ export default {
   transform-style: preserve-3d;
   transition: .3s .1s;
   margin-left : 2rem;
+  cursor: pointer;
 }
 
 .flip-card:hover,
