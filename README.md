@@ -10,4 +10,15 @@
 
 - 2024.12 기준 현재 전체 수정 작업중
 
-![image](https://github.com/user-attachments/assets/8b8fb7da-b96a-4977-ac75-c244959fe1f2)
+## 주요기능 및 화면
+- 메인 페이지
+![image](./assets/main.png)
+
+- 영화 개별 클릭시 뜨는 화면
+![image](./assets/movie_detail.png)
+
+- 영화 추천 페이지 
+![image](./assets/recommend.png)
+
+- 로그인 페이지
+![image](./assets/login.png)
