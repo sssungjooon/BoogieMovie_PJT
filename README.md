@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a6976c00-c4b5-4ba3-9a5b-50c56f7ab3a3)# SSAFY 1학기 최종 2인 프로젝트
+# SSAFY 1학기 최종 2인 프로젝트
 - 임성준, 전태영
 
 - **부귀영화 (SSAFY 관통 프로젝트)** **2022.11.15 ~ 2022.11.25**
